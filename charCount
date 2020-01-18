@@ -1,0 +1,9 @@
+function charCount(str) {
+    var result = {};
+
+    for(var char of str) {
+        result[char] = ++result[char] || 1;
+    }
+    
+    return result;
+}

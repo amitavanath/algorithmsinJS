@@ -1,0 +1,35 @@
+/**Implement a function which accepts 2 strings and verifies whether 2nd string is anagram **/
+
+
+function validAnangram(str1, str2) {
+    if(str1.length !== str2.length) {
+        return false;
+    }
+
+    let strObj1 = {};
+    let strObj2 = {};
+
+    for(var char of str1) {
+        strObj1[char] = ++strObj1[char] || 1;
+    }
+
+    for(var char of str2) {
+        strObj2[char] = ++strObj2[char] || 1;
+    }
+
+    console.log(strObj1);
+    console.log(strObj2);
+
+    for(var key in strObj1) {
+
+        if(!key in strObj2) {
+            return false;
+        } 
+
+        if(strObj1[key] !== strObj2[key]) {
+            return false;
+        }
+    }
+
+    return true;
+}
