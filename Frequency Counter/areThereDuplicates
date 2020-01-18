@@ -1,2 +1,14 @@
 /** function that accepts variable number of arguments returns true false
 by checking whether the3re are any duplicates among the arguments**/
+
+function areThereDuplicates() {
+  let objArgs = {};
+  for (let arg in arguments) {
+    if(objArgs[arg]) {
+      return true;
+    }
+    objArgs[arg] = 1;
+    console.log(objArgs);
+  }
+  return false;
+}
