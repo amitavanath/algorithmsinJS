@@ -1,0 +1,39 @@
+/*given 2 integers find if the two numbers have same
+frequency of digits*/
+
+function sameFrequency(num1, num2){
+  if(num1 === num2) {
+    return true;
+  }
+
+  if(num1.length !== num2.length) {
+    return false;
+  }
+
+  let objNum1 = {};
+  let objNum2 = {};
+  //const arrayOfDigitsNum1 = num1.toString().split('');
+  const arrayOfDigitsNum1 = Array.from(String(num1), Number);
+  const arrayOfDigitsNum2 = Array.from(String(num2), Number);
+
+  for(var digit of arrayOfDigitsNum1) {
+    objNum1[digit] = ++objNum1[digit] || 1;
+  }
+  
+  for(var digit of arrayOfDigitsNum2) {
+    objNum2[digit] = ++objNum2[digit] || 1;
+  }
+
+  for(var item in objNum1) {
+    if(objNum2[item]) {
+      if(objNum2[item] !== objNum1[item]) {
+        return false;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  return true;
+
+}
